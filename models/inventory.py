@@ -4,7 +4,7 @@ class Inventory:
     def __new__(cls, *args, **kwargs):
         if cls.instance is None:
             cls.instance = object.__new__(cls)
-            cls.instance.elements = []
+            cls.instance.elements = cls.standards.copy()
         return cls.instance
 
 
@@ -12,6 +12,6 @@ class Inventory:
         self.elements.append(element)
 
     def cleanElements(self):
-        for element in self.elements:
-            element.clean()
-            element.append(standarts)
+        def cleanElements(self):
+            self.elements.clear()
+            self.elements.extend(self.standards)
