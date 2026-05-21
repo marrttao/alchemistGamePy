@@ -41,6 +41,3 @@ class BunchBuilder:
         return self._bunch
 
 
-class BuildGameData(Element):
-    def get_name(self):
-        return self.name
