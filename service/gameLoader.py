@@ -2,7 +2,7 @@ class GameBuilder:
     @staticmethod
     def loadGameData(filepath: str):
         with open(filepath, "r", encoding="utf-8") as file:
-            data = json.load(file)
+           data = json.load(file)
         builder = BunchBuilder()
         elements_pool: dict[str, BuildElement] = {}
 
