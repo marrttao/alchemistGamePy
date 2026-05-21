@@ -1,4 +1,5 @@
 import json
+from models.elements import BunchBuilder, BuildElement
 
 class GameBuilder:
     @staticmethod
@@ -24,5 +25,15 @@ class GameBuilder:
         return elements_pool, game_bunch
 
     @staticmethod
-    def loadRecords(filepath: str):
-        pass
+    def load(filepath: str):
+        try:
+            with open(filepath, "r") as f:
+                data = json.load(f)
+                return data.get("inventory", [])
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def save(filepath: str, inventory: list[str]):
+        with open(filepath, "w") as f:
+            json.dump({"inventory": inventory}, f, indent=4)

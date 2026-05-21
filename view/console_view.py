@@ -1,14 +1,15 @@
-from interface_view import IRender
+from view.interface_view import IRender
 
 class ConsoleView(IRender):
     def _draw_elements(self, recipe):
         recipe_length = len(recipe)
 
-        for item_index in recipe_length:
+        for item_index in range(recipe_length):
             print(recipe[item_index])
 
             if recipe_length != item_index + 1:
                 print(" + ")
+        print("\n")
 
     def draw_text(self, message: str):
         print(f"{message}")

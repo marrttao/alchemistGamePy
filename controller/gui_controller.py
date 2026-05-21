@@ -1,3 +1,5 @@
-class GuiController:
+from controller.base_controller import BaseController
+
+class GuiController(BaseController):
     def start(self):
-        print("GUI is not implemented yet")
+        self._view.draw_text("GUI is not implemented yet")

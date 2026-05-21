@@ -1,4 +1,4 @@
-from interface_view import IRender
+from view.interface_view import IRender
 
 class GuiView(IRender):
     def __there_is_no_gui(self):

@@ -2,13 +2,23 @@ from controller.base_controller import BaseController
 
 class ConsoleController(BaseController):
     def start(self):
-        self._view.draw_text("Welcome! (enter 'exit' to exit)")
-        self._view.draw_text(self.inventory.elements)
+        self._view.draw_text("Welcome! (commands: exit, save, load)")
 
         while True:
-            command = input("\nEnter 2 or more elements, separated by space: ").strip()
+            self._view.draw_text(f"Your inventory: ")
+            for element in self.inventory.elements:
+                self._view.draw_text(f"{element} ")
 
-            if command == "exit": break
+            command = input("\nEnter 2 or more elements, separated by space or command: ").strip()
+
+            match command.lower():
+                case "exit": break
+                case "save":
+                    self.save_game()
+                    continue
+                case "load":
+                    self.load_game()
+                    continue
 
             ingredients = command.split()
             if len(ingredients) < 2:
