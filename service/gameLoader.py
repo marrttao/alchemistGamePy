@@ -1,14 +1,17 @@
+import json
+import models
+
 class GameBuilder:
     @staticmethod
     def loadGameData(filepath: str):
         with open(filepath, "r", encoding="utf-8") as file:
            data = json.load(file)
-        builder = BunchBuilder()
-        elements_pool: dict[str, BuildElement] = {}
+        builder = models.BunchBuilder()
+        elements_pool: dict[str, models.BuildElement] = {}
 
         def get_or_create_element(name: str):
             if name not in elements_pool:
-                elements_pool[name] = BuildElement(name)
+                elements_pool[name] = models.BuildElement(name)
             return elements_pool[name]
 
         for result_name, ingredients in data.items():
