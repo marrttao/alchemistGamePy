@@ -1,5 +1,7 @@
+import json
 
 class GameBuilder:
+    @staticmethod
     def loadGameData(filepath: str):
         with open(filepath, "r", encoding="utf-8") as file:
             data = json.load(file)
@@ -21,6 +23,6 @@ class GameBuilder:
         game_bunch = builder.build()
         return elements_pool, game_bunch
 
-
+    @staticmethod
     def loadRecords(filepath: str):
         pass

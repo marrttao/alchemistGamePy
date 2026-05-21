@@ -1,6 +1,7 @@
 class Inventory:
     instance = None
-    standards = ["Вода", "Огонь", "Земля", "Воздух"]
+    standards = ["Water", "Fire", "Earth", "Air"]
+
     def __new__(cls, *args, **kwargs):
         if cls.instance is None:
             cls.instance = object.__new__(cls)
@@ -11,7 +12,7 @@ class Inventory:
     def add_element(self, element):
         self.elements.append(element)
 
-    def cleanElements(self):
+    def clean_elements(self):
         for element in self.elements:
             element.clean()
             element.append(standarts)
