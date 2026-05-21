@@ -22,7 +22,11 @@ class Bunch:
 
     def show(self):
         for result, recipe in self.diary.items():
-            print(f"{result} = {recipe[0]} + {recipe[1]}")
+            formula = ""
+            for i in range(len(recipe)):
+                formula += recipe[i]
+                if i < len(recipe) - 1:
+                    formula += " + "
 
 
 class BunchBuilder:
