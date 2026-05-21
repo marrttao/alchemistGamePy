@@ -1,6 +1,7 @@
 class Inventory:
     instance = None
-    standards = ["Вода", "Огонь", "Земля", "Воздух"]
+    standards = ["Water", "Fire", "Earth", "Air"]
+
     def __new__(cls, *args, **kwargs):
         if cls.instance is None:
             cls.instance = object.__new__(cls)

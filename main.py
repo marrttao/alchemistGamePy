@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import sys
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from view.console_view import ConsoleView
+from view.gui_view import GuiView
 
+from controller.console_controller import ConsoleController
+from controller.gui_controller import GuiController
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def run(args):
+    view = ConsoleView()
+    game_controller = ConsoleController(view)
 
+    if len(args) > 1 and args[1] == "--gui":
+        view = GuiView()
+        game_controller = GuiController(view)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    game_controller.start()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    run(sys.argv)

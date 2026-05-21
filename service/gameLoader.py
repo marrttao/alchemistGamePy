@@ -1,4 +1,5 @@
 class GameBuilder:
+    @staticmethod
     def loadGameData(filepath: str):
         with open(filepath, "r", encoding="utf-8") as file:
             data = json.load(file)
@@ -20,6 +21,16 @@ class GameBuilder:
         game_bunch = builder.build()
         return elements_pool, game_bunch
 
+    @staticmethod
+    def load(filepath: str):
+        try:
+            with open(filepath, "r") as f:
+                data = json.load(f)
+                return data.get("inventory", [])
+        except FileNotFoundError:
+            return []
 
-    def loadRecords(filepath: str):
-        pass
+    @staticmethod
+    def save(filepath: str, inventory: list[str]):
+        with open(filepath, "w") as f:
+            json.dump({"inventory": inventory}, f, indent=4)
